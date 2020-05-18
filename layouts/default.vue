@@ -46,6 +46,11 @@ export default {
           title: 'Wyszukaj',
           icon: 'magnify',
           to: { name: 'search' }
+        },
+        {
+          title: 'Info',
+          icon: 'badge-account-horizontal-outline',
+          to: { name: 'info' }
         }
       ]
     }

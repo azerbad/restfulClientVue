@@ -62,6 +62,12 @@ module.exports = {
       pathRewrite: {
         '^/books': '/books'
       }
+    },
+    '/info':{
+      target: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
+      pathRewrite:{
+        '^info': '/info'
+      }
     }
   },
   /*

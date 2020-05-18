@@ -45,18 +45,18 @@
 </template>
 
 <script>
-  import Cleave from 'cleave.js'
-  const cleave = {
-    name: 'cleave',
-    bind(el, binding) {
-      const input = el.querySelector('input')
-      input._vCleave = new Cleave(input, binding.value)
-    },
-    unbind(el) {
-      const input = el.querySelector('input')
-      input._vCleave.destroy()
-    }
+import Cleave from 'cleave.js'
+const cleave = {
+  name: 'cleave',
+  bind(el, binding) {
+    const input = el.querySelector('input')
+    input._vCleave = new Cleave(input, binding.value)
+  },
+  unbind(el) {
+    const input = el.querySelector('input')
+    input._vCleave.destroy()
   }
+}
 export default {
   name: 'Book',
   directives: { cleave },
@@ -84,9 +84,18 @@ export default {
         .put('/books/' + this.book.ISBN, this.book)
         .then((response) => {
           if (response.status === 200) {
+            this.$buefy.toast.open({
+              message: 'Dane zapisane poprawnie!',
+              type: 'is-success'
+            })
             this.$router.push('/')
           } else {
-            // pass
+            this.$buefy.toast.open({
+              duration: 5000,
+              message: `Operacja nie powiodła się`,
+              position: 'is-bottom',
+              type: 'is-danger'
+            })
           }
         })
     },

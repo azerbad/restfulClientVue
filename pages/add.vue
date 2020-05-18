@@ -75,11 +75,19 @@ export default {
   methods: {
     async save() {
       await this.$axios.$post('/books', this.book).then((response) => {
-        console.log(response)
         if (response.includes('OK')) {
+          this.$buefy.toast.open({
+            message: 'Dane zapisane poprawnie!',
+            type: 'is-success'
+          })
           this.$router.push('/')
         } else {
-          // pass
+          this.$buefy.toast.open({
+            duration: 5000,
+            message: `Operacja nie powiodła się`,
+            position: 'is-bottom',
+            type: 'is-danger'
+          })
         }
       })
     },

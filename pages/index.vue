@@ -48,9 +48,24 @@ export default {
   },
   methods: {
     async deleteBook(book) {
-      await this.$axios.$delete('/books/' + book.ISBN)
-      this.data = this.data.filter(function(element) {
-        return element.ISBN !== book.ISBN
+      await this.$axios.$delete('/books/' + book.ISBN).then((response) => {
+        console.log(response)
+        if (response.includes('OK')) {
+          this.$buefy.toast.open({
+            message: 'Dane zapisane poprawnie!',
+            type: 'is-success'
+          })
+          this.data = this.data.filter(function(element) {
+            return element.ISBN !== book.ISBN
+          })
+        } else {
+          this.$buefy.toast.open({
+            duration: 5000,
+            message: `Operacja nie powiodła się`,
+            position: 'is-bottom',
+            type: 'is-danger'
+          })
+        }
       })
     }
   },
