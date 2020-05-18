@@ -52,13 +52,13 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc'
-    // proxy: true
+    baseURL: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
+    proxy: true
   },
 
   proxy: {
     '/books': {
-      target: 'http://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
+      target: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
       pathRewrite: {
         '^/books': '/books'
       }
