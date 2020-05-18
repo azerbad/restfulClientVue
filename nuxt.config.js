@@ -52,8 +52,8 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
-    proxy: true
+    baseURL: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
+    // proxy: true
   },
 
   proxy: {
