@@ -1,0 +1,8 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bfe9f70a-48ba-405c-b1fc-a4721bd5dd89/resourceGroups/restfullclientonexpress/providers/Microsoft.Web/sites/restfullclientonexpress",
+    "appService.deploySubpath": "",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}
