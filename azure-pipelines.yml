@@ -19,3 +19,22 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: |
+      .nuxt/**
+      
+      static/**
+      
+      package.json
+      
+      nuxt.config.js
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/package.zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
