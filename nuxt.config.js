@@ -19,7 +19,7 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#efefef' },
   /*
    ** Global CSS
    */
@@ -53,22 +53,27 @@ module.exports = {
    */
   axios: {
     baseURL: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
-    proxy: true
+    // proxy: true
   },
 
   proxy: {
     '/books': {
-      target: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
+      target:
+        'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
       pathRewrite: {
         '^/books': '/books'
       }
     },
-    '/info':{
-      target: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
-      pathRewrite:{
+    '/info': {
+      target:
+        'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
+      pathRewrite: {
         '^info': '/info'
       }
     }
+  },
+  server: {
+    host: '0.0.0.0'
   },
   /*
    ** Build configuration
