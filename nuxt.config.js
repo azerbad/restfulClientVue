@@ -53,7 +53,7 @@ module.exports = {
    */
   axios: {
     baseURL: 'https://restfulapplication-dev-as.azurewebsites.net/Service1.svc',
-    // proxy: true
+    proxy: true
   },
 
   proxy: {
